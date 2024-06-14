@@ -18,6 +18,11 @@
 		<script type="module" src="/src/main.tsx"></script>
 		<script>
 			const global = globalThis
+			const body = document.querySelector('body')
+			const mode = localStorage.getItem(THEME_KEY)
+			if (mode) {
+				body?.setAttribute('theme', mode)
+			}
 		</script>
 	</body>
 </html>
