@@ -8,9 +8,9 @@ type Props = {
 const Layout = ({ children }: Props) => {
 	return (
 		<>
-			<div style={{ display: 'flex' }}>
+			<div className="Layout">
 				<NavigateBar />
-				<div style={{ flex: '1 1 auto' }}>
+				<div className="Layout-contentBox">
 					<main>{children}</main>
 				</div>
 			</div>

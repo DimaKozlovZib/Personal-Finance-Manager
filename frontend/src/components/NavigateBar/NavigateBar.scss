@@ -28,8 +28,9 @@
 		margin-top: 7vh;
 	}
 	.NavigateBar-nav__item {
-		padding: 2px 15px;
+		padding: 2px 12px 2px 12px;
 		position: relative;
+		width: 32px;
 		&::before {
 			width: 3px;
 			height: 90%;
@@ -51,6 +52,9 @@
 				opacity: 1;
 			}
 		}
+		svg {
+			width: 100%;
+		}
 		&.active {
 			svg {
 				fill: var(--blue-color);
@@ -65,9 +69,7 @@
 		flex: 1 1 auto;
 		display: flex;
 		align-items: flex-end;
-	}
-	.change-theme-btn {
-		padding: 2px 15px;
+		justify-content: center;
 	}
 	.change-theme-btn svg,
 	.NavigateBar-nav__item svg {

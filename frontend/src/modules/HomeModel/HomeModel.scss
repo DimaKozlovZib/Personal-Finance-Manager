@@ -1,0 +1,11 @@
+@import '../../index.scss';
+
+.content-block {
+	margin-top: 20px;
+	&__title {
+		font-size: 30px;
+		font-weight: bold;
+		color: var(--main-elements-color);
+		transition: $color-theme-transition;
+	}
+}
