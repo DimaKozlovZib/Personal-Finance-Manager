@@ -1,0 +1,48 @@
+@import '../../index.scss';
+
+.HistoryList {
+	width: 100%;
+	padding: 20px 15px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	background: var(--main-bg-color);
+	margin-top: 20px;
+	transition: $bacground-theme-transition;
+
+	&-header {
+		display: flex;
+		justify-content: flex-end;
+
+		.seeAll {
+			color: var(--blue-color);
+			transition: $color-theme-transition, opacity 400ms ease;
+			font-size: 16px;
+			opacity: 0.6;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+}
+.HistoryList__item {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 10px 15px;
+
+	.category-box {
+		color: var(--alpha7);
+		font-size: 17px;
+	}
+
+	.money-box {
+		font-size: 18px;
+		margin-left: auto;
+		color: var(--main-elements-color);
+	}
+
+	&:not(:end) {
+		border-bottom: 2px solid var(--alpha4);
+	}
+}

@@ -1,3 +1,4 @@
+import HistoryList from '../../components/HistoryList/HistoryList'
 import InfoCardList from '../../components/InfoCardList/InfoCardList'
 import StartSchedule from '../../components/StartSchedule/StartSchedule'
 import './HomeModel.scss'
@@ -19,6 +20,10 @@ const HomeModel = ({}: Props) => {
 							Аналитический отчет
 						</h2>
 						<StartSchedule />
+					</div>
+					<div className="statistic-block">
+						<h2 className="statistic-block__title">История</h2>
+						<HistoryList />
 					</div>
 				</div>
 				<div className="manage"></div>
