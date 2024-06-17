@@ -1,9 +1,9 @@
 @import '../../index.scss';
 
-.content-block {
-	margin-top: 20px;
+.statistic-block {
+	margin-top: 25px;
 	&__title {
-		font-size: 30px;
+		font-size: 25px;
 		font-weight: bold;
 		color: var(--main-elements-color);
 		transition: $color-theme-transition;

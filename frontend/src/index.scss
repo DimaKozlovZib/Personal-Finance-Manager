@@ -64,16 +64,16 @@
 	--cancel-btn-hover: var(--alpha7);
 	--green-color: #d2e3c8;
 	--green-color-2: #82b471;
-	--blue-color: #0b86d8;
+	--blue-color: rgb(11, 134, 216);
 
 	--basic-padding-horizontally: 15px;
 	--basic-padding-horizontally-wide: 20px;
 	--basic-padding-vertically: 10px;
 }
 
-$svg-theme-transition: fill 700ms ease;
-$bacground-theme-transition: background 700ms ease;
-$color-theme-transition: color 700ms ease;
+$svg-theme-transition: fill 800ms ease;
+$bacground-theme-transition: background 800ms ease;
+$color-theme-transition: color 800ms ease;
 
 @media (max-width: 800px) {
 	:root {

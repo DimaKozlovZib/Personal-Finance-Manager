@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import NavigateBar from '../components/NavigateBar/NavigateBar'
+import Header from '../components/Header/Header'
 
 type Props = {
 	children: ReactNode
@@ -8,12 +8,10 @@ type Props = {
 const Layout = ({ children }: Props) => {
 	return (
 		<>
-			<div className="Layout">
-				<NavigateBar />
-				<div className="Layout-contentBox">
-					<main>{children}</main>
-				</div>
-			</div>
+			<Header />
+			<main>
+				<div className="container">{children}</div>
+			</main>
 		</>
 	)
 }

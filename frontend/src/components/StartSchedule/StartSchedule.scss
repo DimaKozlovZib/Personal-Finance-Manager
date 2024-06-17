@@ -1,0 +1,15 @@
+@import '../../index.scss';
+.StartSchedule {
+	width: 100%;
+	padding: 20px 15px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	background: var(--main-bg-color);
+	margin-top: 20px;
+	transition: $bacground-theme-transition;
+
+	canvas {
+		width: 100%;
+		max-width: 100%;
+	}
+}
