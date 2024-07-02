@@ -1,0 +1,55 @@
+@import '../../index.scss';
+
+.MoneyInput {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	padding: 3px 2px;
+	position: relative;
+
+	&__prefics {
+		color: var(--main-elements-color);
+		font-size: 22px;
+		font-weight: bold;
+	}
+
+	&::after,
+	&::before {
+		content: '';
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		height: 3px;
+		border-radius: 3px;
+		display: block;
+		margin: auto;
+		left: 0;
+		right: 0;
+		background-color: var(--alpha5);
+		transition: $bacground-theme-transition, width 400ms ease;
+	}
+	&::after {
+		width: 0;
+		background-color: var(--blue-color);
+	}
+
+	input {
+		flex: 1 1 auto;
+		font-size: 26px;
+		color: var(--main-elements-color);
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+		&::placeholder {
+			color: var(--alpha5);
+		}
+	}
+}
+
+.MoneyInput:has(input:focus) {
+	&::after {
+		width: 100%;
+	}
+}

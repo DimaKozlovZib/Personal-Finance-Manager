@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import './InfoCardList.scss'
 
 type infoCardType = {
@@ -6,7 +7,7 @@ type infoCardType = {
 	secondInfo?: string
 }
 
-const InfoCard = ({ title, info, secondInfo = '' }: infoCardType) => {
+const InfoCard = memo(({ title, info, secondInfo = '' }: infoCardType) => {
 	return (
 		<div className="InfoCard">
 			<h3 className="InfoCard-title">{title}</h3>
@@ -14,11 +15,11 @@ const InfoCard = ({ title, info, secondInfo = '' }: infoCardType) => {
 			<h5 className="InfoCard-dopInfo">{secondInfo}</h5>
 		</div>
 	)
-}
+})
 
 type Props = {}
 
-const InfoCardList = ({}: Props) => {
+const InfoCardList = memo(({}: Props) => {
 	return (
 		<div className="InfoCardList">
 			<InfoCard
@@ -43,6 +44,6 @@ const InfoCardList = ({}: Props) => {
 			/>
 		</div>
 	)
-}
+})
 
 export default InfoCardList

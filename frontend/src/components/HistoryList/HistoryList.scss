@@ -42,7 +42,7 @@
 		color: var(--main-elements-color);
 	}
 
-	&:not(:end) {
+	&:not(:last-child) {
 		border-bottom: 2px solid var(--alpha4);
 	}
 }

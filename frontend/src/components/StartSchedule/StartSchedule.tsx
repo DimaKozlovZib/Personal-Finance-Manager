@@ -1,12 +1,12 @@
 import { Chart, ChartConfiguration } from 'chart.js/auto'
-import { useEffect } from 'react'
+import { memo, useEffect } from 'react'
 import './StartSchedule.scss'
 import useAppSelector from '../../hooks/useAppSelector'
 import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 type Props = {}
 
-const StartSchedule = ({}: Props) => {
+const StartSchedule = memo(({}: Props) => {
 	const { mode: themeMode } = useAppSelector((state) => state.theme)
 	const { width } = useWindowDimensions()
 
@@ -33,7 +33,7 @@ const StartSchedule = ({}: Props) => {
 			document.getElementById(table) as HTMLCanvasElement
 		).getContext('2d')
 
-		let gradient = ctx?.createLinearGradient(0, 0, 0, 400)
+		const gradient = ctx?.createLinearGradient(0, 0, 0, 400)
 		gradient?.addColorStop(0, themes[themeMode].scheduleColor)
 		gradient?.addColorStop(1, themes[themeMode].gradientScheduleColor)
 
@@ -104,6 +104,6 @@ const StartSchedule = ({}: Props) => {
 			<canvas id="myChart"></canvas>
 		</div>
 	)
-}
+})
 
 export default StartSchedule

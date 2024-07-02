@@ -1,0 +1,21 @@
+@import '../../index.scss';
+
+.simpleButton {
+	padding: 10px 20px;
+	font-size: 20px;
+	border-radius: 5px;
+	background-color: var(--blue-color);
+	color: #fff;
+	transition: box-shadow 300ms ease;
+
+	&:hover {
+		box-shadow: 0px 0px 6px 2px var(--blue-color);
+	}
+}
+.simpleButton.cancelType {
+	background-color: var(--alpha2);
+	color: var(--main-elements-color);
+	&:hover {
+		box-shadow: 0px 0px 2px 2px var(--alpha1);
+	}
+}

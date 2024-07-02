@@ -2,10 +2,12 @@ import { useDispatch } from "react-redux"
 import { useMemo } from "react"
 import { bindActionCreators } from "@reduxjs/toolkit"
 import { actions as themeActions } from "../store/slices/themeReducer"
+import { actions as modalActions } from "../store/slices/modalReducer"
 
 
 const rootActions = {
-    ...themeActions
+    ...themeActions,
+    ...modalActions
 }
 
 export const useActions = () => {

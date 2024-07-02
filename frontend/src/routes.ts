@@ -1,5 +1,6 @@
 enum paths {
   HOME = '',
+  TRANSACTIONS = 'Transactions'
 }
 
 const NavigatePath = (path: string): string => `/${path}`

@@ -46,7 +46,13 @@
 		position: relative;
 		font-size: 18px;
 		font-weight: 400;
-		transition: $color-theme-transition;
+		transition: $color-theme-transition, opacity 200ms ease;
+		color: var(--main-elements-color);
+		opacity: 0.7;
+
+		&:not(.active):hover {
+			opacity: 1;
+		}
 
 		&::before {
 			width: 100%;
@@ -58,11 +64,20 @@
 			bottom: -6px;
 			left: 0;
 			right: 0;
+			opacity: 0;
+			transition: opacity 400ms ease-out, $bacground-theme-transition;
 		}
-		&:visited {
-			color: inherit;
+		&:visited,
+		&:hover {
+			color: inherit !important;
 		}
+
+		&:hover::before {
+			opacity: 1;
+		}
+
 		&.active {
+			opacity: 1;
 			svg {
 				fill: var(--blue-color);
 			}

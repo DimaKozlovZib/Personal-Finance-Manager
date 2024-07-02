@@ -43,6 +43,9 @@ const Header = ({}: Props) => {
 
 				<nav className="Header-nav">
 					<NavigateItem path={paths.HOME}>HOME</NavigateItem>
+					<NavigateItem path={paths.TRANSACTIONS}>
+						TRANSACTIONS
+					</NavigateItem>
 				</nav>
 
 				<div className="settings">

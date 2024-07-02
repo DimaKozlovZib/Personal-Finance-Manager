@@ -1,8 +1,10 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import { reducer as themeReducer } from './slices/themeReducer';
+import { reducer as modalReducer } from './slices/modalReducer';
 
 const reducer = combineReducers({
-  theme: themeReducer
+  theme: themeReducer,
+  modal: modalReducer
 })
 
 export const store = configureStore({

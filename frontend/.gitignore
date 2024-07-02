@@ -26,3 +26,6 @@ dist-ssr
 *.sw?
 
 node_modules
+
+# Million Lint
+.million

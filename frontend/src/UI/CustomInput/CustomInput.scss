@@ -1,0 +1,41 @@
+@import '../../index.scss';
+
+.CustomInput {
+	position: relative;
+	padding: 12px 2px;
+
+	&::after,
+	&::before {
+		content: '';
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		height: 3px;
+		border-radius: 3px;
+		display: block;
+		margin: auto;
+		left: 0;
+		right: 0;
+		background-color: var(--alpha5);
+		transition: $bacground-theme-transition, width 400ms ease;
+	}
+	&::after {
+		width: 0;
+		background-color: var(--blue-color);
+	}
+	input {
+		width: 100%;
+		flex: 1 1 auto;
+		font-size: 26px;
+		color: var(--main-elements-color);
+		&::placeholder {
+			color: var(--alpha5);
+		}
+	}
+}
+
+.CustomInput:has(input:focus) {
+	&::after {
+		width: 100%;
+	}
+}

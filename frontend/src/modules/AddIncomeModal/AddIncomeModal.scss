@@ -1,0 +1,31 @@
+.AddIncomeModal {
+	&__title {
+		font-size: 23px;
+		text-align: center;
+		color: var(--main-elements-color);
+		font-weight: bold;
+	}
+	&-block.first-block {
+		margin-top: 25px;
+		display: flex;
+		gap: 25px;
+
+		& > * {
+			flex: 1 1 auto;
+			flex-grow: 1;
+			width: 50%;
+		}
+	}
+
+	.commentInput {
+		margin-top: 20px;
+	}
+
+	.buttonsWrapper {
+		margin-top: 30px;
+		width: 100%;
+		display: flex;
+		gap: 15px;
+		justify-content: flex-end;
+	}
+}
