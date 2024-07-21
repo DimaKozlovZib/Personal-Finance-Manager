@@ -1,6 +1,4 @@
-type Props = {}
-
-const Logo = ({}: Props) => (
+const Logo = () => (
 	<svg
 		width="38"
 		height="36"

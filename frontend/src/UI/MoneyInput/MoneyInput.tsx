@@ -18,7 +18,7 @@ const MoneyInput = ({ placeholder, value, setValue }: Props) => {
 	}
 
 	return (
-		<div className="MoneyInput">
+		<div className="MoneyInput customInputStyleClass">
 			<div className="MoneyInput__prefics">
 				<span>₽</span>
 			</div>

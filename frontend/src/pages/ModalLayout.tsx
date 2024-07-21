@@ -1,37 +1,63 @@
-import { ReactNode, useMemo, useRef, useState } from 'react'
+import { ReactNode, useMemo } from 'react'
 import { Transition } from 'react-transition-group'
 import useModal from '../hooks/useModal'
 import ModalKeys from '../ModalKeys'
 import useAppSelector from '../hooks/useAppSelector'
 
-type Props = {
-	targetKey: ModalKeys
+type ModalProps = {
+	IsActive: boolean
 	children: ReactNode
+	isDirectionСlockwise: boolean
 }
 
-const duration = 400
-
-const ModalLayout = ({ targetKey, children }: Props) => {
-	const [_, closeOnClickWrapper] = useModal(null, '.modal-wrapper')
-	const { key } = useAppSelector((state) => state.modal)
-	const isModalctive = useMemo(() => key === targetKey, [key])
-
+const Modal = ({ IsActive, children, isDirectionСlockwise }: ModalProps) => {
 	return (
 		<Transition
-			in={isModalctive}
-			timeout={duration} // Длительность анимации
+			in={IsActive}
+			timeout={{
+				appear: 0,
+				enter: 0,
+				exit: 300
+			}}
 			unmountOnExit
 		>
 			{(state) => (
 				<div
-					className={`modal-wrapper modal-wrapper-${state}`}
-					onClick={closeOnClickWrapper}
+					className={`modal-content modal-content-${state} ${
+						isDirectionСlockwise && 'DirectionСlockwise'
+					}`}
 				>
-					<div className="modal-content">{children}</div>
+					{children}
 				</div>
 			)}
 		</Transition>
 	)
 }
 
-export default ModalLayout
+type ModalLayoutProps = {
+	targetKey: ModalKeys
+	children: ReactNode
+}
+
+const duration = 400
+
+const ModalLayout = ({ targetKey, children }: ModalLayoutProps) => {
+	const [, closeOnClickWrapper] = useModal(null, '.modal-wrapper')
+	const { key } = useAppSelector((state) => state.modal)
+	const isModalActive = useMemo(() => key === targetKey, [key])
+
+	return (
+		<Transition in={isModalActive} timeout={duration} unmountOnExit>
+			{(state) => (
+				<div
+					className={`modal-wrapper modal-wrapper-${state}`}
+					onClick={closeOnClickWrapper}
+				>
+					{children}
+				</div>
+			)}
+		</Transition>
+	)
+}
+
+export { Modal, ModalLayout }

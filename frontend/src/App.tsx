@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from 'react'
-import './App.scss'
+import './styles/App.scss'
 import { Outlet /* useLocation, useNavigate*/ } from 'react-router-dom'
 import useAppSelector from './hooks/useAppSelector'
 import { createTheme, Skeleton, ThemeProvider } from '@mui/material'
 import ModalKeys from './ModalKeys'
 import AddIncomeModal from './modules/AddIncomeModal/AddIncomeModal'
+import './styles/inputStyle.scss'
+import AddExpensesModal from './modules/AddExpensesModal/AddExpensesModal'
 //import { useActions } from './hooks/useActions.ts'
 //import { NavigatePath, paths } from './routes.ts'
 
@@ -50,6 +52,7 @@ function App() {
 				<Outlet />
 
 				<AddIncomeModal ModalKey={ModalKeys.IncomeModal} />
+				<AddExpensesModal ModalKey={ModalKeys.ExpensesModal} />
 			</div>
 		</ThemeProvider>
 	)

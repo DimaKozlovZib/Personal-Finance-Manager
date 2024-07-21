@@ -1,5 +1,5 @@
 import ModalKeys from '../../ModalKeys'
-import ModalLayout from '../../pages/ModalLayout'
+import { Modal, ModalLayout } from '../../pages/ModalLayout'
 import MoneyInput from '../../UI/MoneyInput/MoneyInput'
 import './AddIncomeModal.scss'
 import CustomSelect from '../../UI/CustomSelect/CustomSelect'
@@ -35,38 +35,40 @@ const AddIncomeModal = ({ ModalKey }: Props) => {
 
 	return (
 		<ModalLayout targetKey={ModalKey}>
-			<div className="AddIncomeModal">
-				<h4 className="AddIncomeModal__title">
-					Параметры транзакции (доход)
-				</h4>
-				<div className="AddIncomeModal-block first-block">
-					<MoneyInput
-						value={MoneyCount}
-						setValue={setMoneyCount}
-						placeholder="Сумма дохода"
+			<Modal IsActive>
+				<div className="AddIncomeModal">
+					<h4 className="AddIncomeModal__title">
+						Параметры транзакции (доход)
+					</h4>
+					<div className="AddIncomeModal-block first-block">
+						<MoneyInput
+							value={MoneyCount}
+							setValue={setMoneyCount}
+							placeholder="Сумма дохода"
+						/>
+						<CustomSelect
+							valuesList={incomeCategories}
+							value={Category}
+							setValue={setCategory}
+							label="Категоря дохода"
+						/>
+					</div>
+					<CustomInput
+						value={Comment}
+						setValue={setComment}
+						placeholder="Коментарий"
+						className="commentInput"
 					/>
-					<CustomSelect
-						valuesList={incomeCategories}
-						value={Category}
-						setValue={setCategory}
-						label="Категоря дохода"
-					/>
+					<div className="buttonsWrapper">
+						<CustomButton onClick={closeModal} cancelType>
+							Назад
+						</CustomButton>
+						<CustomButton onClick={sendDataEvent}>
+							Добавить
+						</CustomButton>
+					</div>
 				</div>
-				<CustomInput
-					value={Comment}
-					setValue={setComment}
-					placeholder="Коментарий"
-					className="commentInput"
-				/>
-				<div className="buttonsWrapper">
-					<CustomButton onClick={closeModal} cancelType>
-						Назад
-					</CustomButton>
-					<CustomButton onClick={sendDataEvent}>
-						Добавить
-					</CustomButton>
-				</div>
-			</div>
+			</Modal>
 		</ModalLayout>
 	)
 }

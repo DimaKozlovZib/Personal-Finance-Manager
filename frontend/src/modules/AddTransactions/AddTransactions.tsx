@@ -4,15 +4,14 @@ import './AddTransactions.scss'
 import ModalKeys from '../../ModalKeys'
 import useModal from '../../hooks/useModal'
 
-type Props = {}
-
-const AddTransactions = ({}: Props) => {
-	const [openModal] = useModal(ModalKeys.IncomeModal)
+const AddTransactions = () => {
+	const [openIncomeModal] = useModal(ModalKeys.IncomeModal)
+	const [openExpensesModal] = useModal(ModalKeys.ExpensesModal)
 
 	return (
 		<div className="AddTransactions">
 			<div className="AddTransactions-mainBtns">
-				<button className="mainBtns__item" onClick={openModal}>
+				<button className="mainBtns__item" onClick={openIncomeModal}>
 					<div className="svgBox">
 						<AddIcon />
 					</div>
@@ -20,7 +19,7 @@ const AddTransactions = ({}: Props) => {
 					<h2>Заработок</h2>
 					<h3>Добавить статью доходов</h3>
 				</button>
-				<button className="mainBtns__item">
+				<button className="mainBtns__item" onClick={openExpensesModal}>
 					<div className="svgBox">
 						<RemoveIcon />
 					</div>

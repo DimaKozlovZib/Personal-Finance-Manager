@@ -14,7 +14,7 @@ const CustomInput = ({ placeholder, className, setValue, value }: Props) => {
 	}
 
 	return (
-		<div className={`CustomInput ${className}`}>
+		<div className={`CustomInput customInputStyleClass ${className}`}>
 			<input
 				type="text"
 				placeholder={placeholder}

@@ -1,5 +1,6 @@
 enum ModalKeys {
-    IncomeModal = 'IncomeModal'
+	IncomeModal = 'IncomeModal',
+	ExpensesModal = 'ExpensesModal'
 }
 
 export default ModalKeys

@@ -107,20 +107,59 @@ body.modalActive {
 		max-height: 80vh;
 		height: fit-content;
 		transform: translateY(-50px);
-		transition: transform 400ms ease;
 	}
 }
 
 .modal-wrapper-entering {
 	opacity: 1;
+
 	.modal-content {
 		transform: translateY(0px);
+		transition: transform 400ms ease;
 	}
 }
 .modal-wrapper-entered {
 	opacity: 1;
+
 	.modal-content {
 		transform: translateY(0px);
+		transition: none;
+	}
+
+	.modal-content-entering {
+		transition: none;
+		transform: translateX(100%);
+	}
+	.modal-content-entered {
+		transform: translateX(0);
+		transition: transform 350ms ease-out;
+	}
+	.modal-content-exiting {
+		transform: translateX(-100%);
+		transition: transform 350ms ease-out, opacity 500ms ease;
+		opacity: 0;
+	}
+	.modal-content-exited {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+
+	.DirectionСlockwise.modal-content-entering {
+		transition: none;
+		transform: translateX(-100%);
+	}
+	.DirectionСlockwise.modal-content-entered {
+		transform: translateX(0);
+		transition: transform 350ms ease-out;
+	}
+	.DirectionСlockwise.modal-content-exiting {
+		transform: translateX(100%);
+		transition: transform 350ms ease-out, opacity 500ms ease;
+		opacity: 0;
+	}
+	.DirectionСlockwise.modal-content-exited {
+		transform: translateX(100%);
+		opacity: 0;
 	}
 }
 
