@@ -1,0 +1,79 @@
+@import '../../styles/index.scss';
+
+.DateInput,
+.TimeInput {
+	[class*='-MuiInputBase-root-MuiFilledInput-root'],
+	.css-1d223f6-MuiInputBase-root-MuiFilledInput-root {
+		background-color: transparent !important;
+		font-size: 26px;
+		&:hover {
+			background-color: transparent !important;
+		}
+
+		&::after,
+		&::before {
+			transform: none !important;
+			border: none !important;
+			content: '';
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			height: 3px;
+			border-radius: 3px;
+			right: 0;
+			left: 0;
+			margin: auto;
+			background-color: var(--alpha5) !important;
+			transition: $bacground-theme-transition, width 400ms ease !important;
+		}
+		&::after {
+			width: 0 !important;
+			background-color: var(--blue-color) !important;
+		}
+		&.Mui-focused {
+			&::after {
+				width: 100% !important;
+			}
+		}
+		input {
+			padding: 7px 0px 7px 5px;
+			flex: 1 1 auto;
+			font-size: 26px;
+			color: var(--main-elements-color);
+			&::-webkit-inner-spin-button,
+			&::-webkit-outer-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+			&::placeholder {
+				color: var(--alpha5);
+			}
+		}
+		.css-1k3ibsw-MuiButtonBase-root-MuiIconButton-root {
+			.MuiSvgIcon-root,
+			.MuiSvgIcon-fontSizeMedium,
+			.css-i4bv87-MuiSvgIcon-root {
+				fill: var(--alpha5);
+				transition: $color-theme-transition;
+			}
+		}
+		.css-1k3ibsw-MuiButtonBase-root-MuiIconButton-root:hover {
+			.MuiSvgIcon-root,
+			.MuiSvgIcon-fontSizeMedium,
+			.css-i4bv87-MuiSvgIcon-root {
+				fill: var(--main-elements-color);
+			}
+		}
+	}
+	.css-z3c6am-MuiFormControl-root-MuiTextField-root {
+		width: 100%;
+	}
+}
+
+.DateInput,
+.TimeInput {
+	h3 {
+		font-size: 18px;
+		color: var(--main-elements-color);
+	}
+}

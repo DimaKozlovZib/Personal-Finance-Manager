@@ -1,0 +1,152 @@
+@import './index.scss';
+
+.modal-wrapper {
+	opacity: 0;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba($color: #000000, $alpha: 0.3);
+	transition: opacity 400ms ease;
+
+	.modal-content {
+		margin: auto;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		box-sizing: border-box;
+		padding: 35px 20px;
+		border-radius: 10px;
+		background: var(--main-bg-color);
+		max-width: 85%;
+		max-height: 80vh;
+		height: fit-content;
+		transform: translateY(-50px);
+	}
+}
+
+.modal-wrapper-entering {
+	opacity: 1;
+
+	.modal-content {
+		transform: translateY(0px);
+		transition: transform 400ms ease;
+	}
+}
+.modal-wrapper-entered {
+	opacity: 1;
+
+	.modal-content {
+		transform: translateY(0px);
+		transition: none;
+	}
+
+	.modal-content-entering {
+		transition: none;
+		transform: translateX(100%);
+	}
+	.modal-content-entered {
+		transform: translateX(0);
+		transition: transform 350ms ease-out;
+	}
+	.modal-content-exiting {
+		transform: translateX(-100%);
+		transition: transform 350ms ease-out, opacity 500ms ease;
+		opacity: 0;
+	}
+	.modal-content-exited {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+
+	.DirectionСlockwise.modal-content-entering {
+		transition: none;
+		transform: translateX(-100%);
+	}
+	.DirectionСlockwise.modal-content-entered {
+		transform: translateX(0);
+		transition: transform 350ms ease-out;
+	}
+	.DirectionСlockwise.modal-content-exiting {
+		transform: translateX(100%);
+		transition: transform 350ms ease-out, opacity 500ms ease;
+		opacity: 0;
+	}
+	.DirectionСlockwise.modal-content-exited {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+}
+
+.modal-wrapper-exiting {
+	opacity: 0;
+	.modal-content {
+		transform: translateY(0px);
+	}
+}
+.modal-wrapper-exited {
+	opacity: 0;
+}
+
+.modalStyleClass {
+	&__title {
+		font-size: 23px;
+		text-align: center;
+		color: var(--main-elements-color);
+		font-weight: bold;
+	}
+	&-block.first-block {
+		margin-top: 25px;
+		display: flex;
+		gap: 25px;
+
+		& > * {
+			flex: 1 1 auto;
+			flex-grow: 1;
+			width: 50%;
+		}
+	}
+}
+
+.modal-content {
+	.buttonsWrapper {
+		margin-top: 30px;
+		width: 100%;
+		display: flex;
+		gap: 15px;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.clearBtn {
+		font-size: 18px;
+		color: var(--alpha5);
+		transition: $color-theme-transition;
+
+		&:hover {
+			color: var(--main-elements-color);
+		}
+	}
+
+	.navigateButtonsBox {
+		display: flex;
+		gap: 15px;
+		justify-content: flex-end;
+		align-items: center;
+	}
+}
+
+.modalStyleClass.AddExpensesModal,
+.modalStyleClass.AddIncomeModal {
+	.commentInput {
+		margin-top: 20px;
+	}
+	.DateTimeInputsBox {
+		margin-top: 20px;
+	}
+}

@@ -3,8 +3,9 @@ import RemoveIcon from '@mui/icons-material/Remove'
 import './AddTransactions.scss'
 import ModalKeys from '../../ModalKeys'
 import useModal from '../../hooks/useModal'
+import { memo } from 'react'
 
-const AddTransactions = () => {
+const AddTransactions = memo(() => {
 	const [openIncomeModal] = useModal(ModalKeys.IncomeModal)
 	const [openExpensesModal] = useModal(ModalKeys.ExpensesModal)
 
@@ -30,6 +31,6 @@ const AddTransactions = () => {
 			</div>
 		</div>
 	)
-}
+})
 
 export default AddTransactions

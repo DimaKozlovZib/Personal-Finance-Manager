@@ -1,18 +1,19 @@
 import { useActions } from './useActions'
 import ModalKeys from '../ModalKeys'
 import useAppSelector from './useAppSelector'
+import { MouseEvent, useCallback } from 'react'
 
 type useModalType = (
 	modalKey: ModalKeys | null,
 	wrapperSelector?: string,
 	data?: any
-) => [() => void, (e: any) => void]
+) => [() => void, (e: MouseEvent) => void]
 
 const useModal: useModalType = (modalKey, wrapperSelector, data: any) => {
 	const { changeModal } = useActions()
 	const modalState = useAppSelector((state) => state.modal)
 
-	const setModal = () => {
+	const setModal = useCallback(() => {
 		changeModal({ key: modalKey })
 		const classList = (document.querySelector('body') as HTMLBodyElement)
 			.classList
@@ -22,9 +23,9 @@ const useModal: useModalType = (modalKey, wrapperSelector, data: any) => {
 		} else if (modalState.key && !modalKey) {
 			classList.remove('modalActive')
 		}
-	}
+	}, [data])
 
-	const closeOnClickWrapper = (e: MouseEvent) => {
+	const closeOnClickWrapper = useCallback((e: MouseEvent) => {
 		if (!wrapperSelector) return
 		const wrapper = document.querySelector(wrapperSelector)
 		if (e.target === wrapper) {
@@ -32,7 +33,7 @@ const useModal: useModalType = (modalKey, wrapperSelector, data: any) => {
 			e.stopPropagation()
 			setModal()
 		}
-	}
+	}, [])
 
 	return [setModal, closeOnClickWrapper]
 }

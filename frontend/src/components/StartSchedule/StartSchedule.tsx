@@ -4,9 +4,7 @@ import './StartSchedule.scss'
 import useAppSelector from '../../hooks/useAppSelector'
 import useWindowDimensions from '../../hooks/useWindowDimensions'
 
-type Props = {}
-
-const StartSchedule = memo(({}: Props) => {
+const StartSchedule = memo(() => {
 	const { mode: themeMode } = useAppSelector((state) => state.theme)
 	const { width } = useWindowDimensions()
 
