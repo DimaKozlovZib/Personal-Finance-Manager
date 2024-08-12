@@ -1,6 +1,8 @@
 import { Avatar } from '@mui/material'
 import { Link } from 'react-router-dom'
 import './HistoryList.scss'
+import HistoryItem from '../../UI/HistoryItem/HistoryItem'
+import { ExpensesCategories } from '../../modules/TransactionsModals/Categories'
 
 type Props = {}
 
@@ -13,28 +15,19 @@ const HistoryList = ({}: Props) => {
 				</Link>
 			</div>
 			<div className="HistoryList-list">
-				<div className="HistoryList__item">
-					<div className="item-avatar-box">
-						<Avatar />
-					</div>
-					<div className="category-box">
-						<h3>Здоровье</h3>
-					</div>
-					<div className="money-box">
-						<h3>120 ₽</h3>
-					</div>
-				</div>
-				<div className="HistoryList__item">
-					<div className="item-avatar-box">
-						<Avatar />
-					</div>
-					<div className="category-box">
-						<h3>Здоровье</h3>
-					</div>
-					<div className="money-box">
-						<h3>120 ₽</h3>
-					</div>
-				</div>
+				<HistoryItem
+					category={ExpensesCategories[11].name}
+					moneyCount={200}
+					isIncome
+				/>
+				<HistoryItem
+					category={ExpensesCategories[1].name}
+					moneyCount={200}
+				/>
+				<HistoryItem
+					category={ExpensesCategories[8].name}
+					moneyCount={200}
+				/>
 			</div>
 		</article>
 	)

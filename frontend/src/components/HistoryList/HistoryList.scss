@@ -23,25 +23,8 @@
 			}
 		}
 	}
-}
-.HistoryList__item {
-	display: flex;
-	align-items: center;
-	gap: 20px;
-	padding: 10px 15px;
 
-	.category-box {
-		color: var(--alpha7);
-		font-size: 17px;
-	}
-
-	.money-box {
-		font-size: 18px;
-		margin-left: auto;
-		color: var(--main-elements-color);
-	}
-
-	&:not(:last-child) {
-		border-bottom: 2px solid var(--alpha4);
+	&-list {
+		margin-top: 5px;
 	}
 }

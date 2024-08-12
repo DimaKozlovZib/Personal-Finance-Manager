@@ -71,10 +71,10 @@
 	--basic-padding-horizontally-wide: 20px;
 	--basic-padding-vertically: 10px;
 }
-
-$svg-theme-transition: fill 800ms ease;
-$bacground-theme-transition: background 800ms ease;
-$color-theme-transition: color 800ms ease;
+$transitionTime: 800ms ease;
+$svg-theme-transition: fill $transitionTime;
+$bacground-theme-transition: background $transitionTime;
+$color-theme-transition: color $transitionTime;
 
 @media (max-width: 800px) {
 	:root {

@@ -23,6 +23,8 @@ const ModalType = {
 	timeBlock: 1
 }
 
+const categories = ExpensesCategories.map((i) => i.name)
+
 const AddExpensesModal = ({ ModalKey }: Props) => {
 	const [closeModal] = useModal(null)
 
@@ -67,7 +69,7 @@ const AddExpensesModal = ({ ModalKey }: Props) => {
 							placeholder="Сумма расхода"
 						/>
 						<CustomSelect
-							valuesList={ExpensesCategories}
+							valuesList={categories}
 							value={Category}
 							setValue={setCategory}
 							label="Категоря расхода"

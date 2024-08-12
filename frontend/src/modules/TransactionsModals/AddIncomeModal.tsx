@@ -23,6 +23,8 @@ const ModalType = {
 	timeBlock: 1
 }
 
+const categories = IncomeCategories.map((i) => i.name)
+
 const AddIncomeModal = ({ ModalKey }: Props) => {
 	const [closeModal] = useModal(null)
 
@@ -67,7 +69,7 @@ const AddIncomeModal = ({ ModalKey }: Props) => {
 							placeholder="Сумма дохода"
 						/>
 						<CustomSelect
-							valuesList={IncomeCategories}
+							valuesList={categories}
 							value={Category}
 							setValue={setCategory}
 							label="Категоря дохода"
