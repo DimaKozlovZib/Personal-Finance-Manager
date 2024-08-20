@@ -11,6 +11,7 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import { ruRU } from '@mui/x-date-pickers/locales'
 
 import '../styles/App.scss'
+import '../styles/variables.scss'
 import { AppProps } from 'next/app'
 
 const blueMainColor = { dark: 'rgb(57, 100, 228)', light: 'rgb(11, 134, 216)' }
