@@ -1,5 +1,6 @@
 import { MouseEvent, ReactNode } from 'react'
-import './CustomButton.scss'
+import st from './CustomButton.module.scss'
+import { classes } from '../../constants'
 type Props = {
 	children: ReactNode
 	onClick: (e: MouseEvent<HTMLButtonElement>) => void
@@ -11,9 +12,11 @@ const CustomButton = ({ children, onClick, className, cancelType }: Props) => {
 	return (
 		<button
 			onClick={onClick}
-			className={`simpleButton ${className} ${
-				cancelType ? 'cancelType' : ''
-			}`}
+			className={classes(
+				st.simpleButton,
+				className,
+				!!cancelType && st.cancelType
+			)}
 		>
 			{children}
 		</button>

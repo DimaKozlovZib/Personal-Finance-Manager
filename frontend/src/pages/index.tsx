@@ -1,11 +1,9 @@
 import HistoryList from '../components/HistoryList/HistoryList'
 import InfoCardList from '../components/InfoCardList/InfoCardList'
 import StartSchedule from '../components/StartSchedule/StartSchedule'
-import Layout from './Layout'
+import Layout from '../Layouts/Layout'
 
-type Props = {}
-
-const Home = ({}: Props) => {
+const Home = () => {
 	return (
 		<Layout>
 			<h1 className="pageTitle">Основная информация</h1>

@@ -1,5 +1,6 @@
 import { ChangeEvent, Dispatch } from 'react'
-import './CustomInput.scss'
+import { classes } from '../../constants'
+import st from '../../styles/inputStyle.module.scss'
 
 type Props = {
 	placeholder: string
@@ -8,13 +9,18 @@ type Props = {
 	value: string
 }
 
-const CustomInput = ({ placeholder, className, setValue, value }: Props) => {
+const CustomInput = ({
+	placeholder,
+	className = '',
+	setValue,
+	value
+}: Props) => {
 	const changeInput = (e: ChangeEvent<HTMLInputElement>) => {
 		setValue(e.target.value)
 	}
 
 	return (
-		<div className={`CustomInput customInputStyleClass ${className}`}>
+		<div className={classes(st.customInputStyleClass, className)}>
 			<input
 				type="text"
 				placeholder={placeholder}

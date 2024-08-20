@@ -7,12 +7,11 @@ type TypeTheme = {
 }
 
 const initialState: TypeTheme = {
-	mode:
-		(localStorage.getItem(THEME_KEY) as typeThemeModes | undefined) ??
-		(window.matchMedia &&
-			window.matchMedia('(prefers-color-scheme: dark)').matches)
-			? 'dark'
-			: 'light'
+	mode: 'dark'
+	// 		window.matchMedia &&
+	// 		window.matchMedia('(prefers-color-scheme: dark)').matches
+	// 			? 'dark'
+	// 			: 'light'
 }
 
 const themeSlice = createSlice({

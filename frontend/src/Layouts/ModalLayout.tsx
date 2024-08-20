@@ -3,6 +3,8 @@ import { Transition } from 'react-transition-group'
 import useModal from '../hooks/useModal'
 import ModalKeys from '../ModalKeys'
 import useAppSelector from '../hooks/useAppSelector'
+import st from '../styles/Modals.module.scss'
+import { classes } from '../constants'
 
 type ModalProps = {
 	IsActive: boolean
@@ -23,9 +25,11 @@ const Modal = ({ IsActive, children, isDirectionСlockwise }: ModalProps) => {
 		>
 			{(state) => (
 				<div
-					className={`modal-content modal-content-${state} ${
-						isDirectionСlockwise && 'DirectionСlockwise'
-					}`}
+					className={classes(
+						st.modalContent,
+						st['Content-' + state],
+						isDirectionСlockwise ? 'DirectionСlockwise' : ''
+					)}
 				>
 					{children}
 				</div>
@@ -42,7 +46,7 @@ type ModalLayoutProps = {
 const duration = 400
 
 const ModalLayout = ({ targetKey, children }: ModalLayoutProps) => {
-	const [, closeOnClickWrapper] = useModal(null, '.modal-wrapper')
+	const [, closeOnClickWrapper] = useModal(null, '.' + st.modalWrapper)
 	const { key } = useAppSelector((state) => state.modal)
 	const isModalActive = useMemo(() => key === targetKey, [key])
 
@@ -50,7 +54,7 @@ const ModalLayout = ({ targetKey, children }: ModalLayoutProps) => {
 		<Transition in={isModalActive} timeout={duration} unmountOnExit>
 			{(state) => (
 				<div
-					className={`modal-wrapper modal-wrapper-${state}`}
+					className={classes(st.modalWrapper, st['Wrapper-' + state])}
 					onClick={closeOnClickWrapper}
 				>
 					{children}

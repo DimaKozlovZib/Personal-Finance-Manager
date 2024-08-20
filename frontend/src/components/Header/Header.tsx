@@ -1,12 +1,14 @@
-import './Header.scss'
-import { Link, useLocation } from 'react-router-dom'
-import { NavigatePath, paths } from '../../routes'
+import st from './Header.module.scss'
+import { routes } from '../../routes'
 import { ReactNode } from 'react'
 import useAppSelector from '../../hooks/useAppSelector'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import { useActions } from '../../hooks/useActions'
 import Logo from '../../Logo'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+import Container from '../../UI/Container/Container'
 
 type NavigateItemProps = {
 	path: string
@@ -14,43 +16,43 @@ type NavigateItemProps = {
 }
 
 const NavigateItem = ({ path, children }: NavigateItemProps) => {
-	const location = useLocation()
+	const pathName = usePathname()
 
-	const condition = location.pathname === NavigatePath(path)
+	const condition = pathName === path
+
 	return (
 		<Link
-			to={NavigatePath(path)}
-			className={`Header-nav__item ${condition ? 'active' : ''}`}
+			href={path}
+			className={`${st.nav__item} ${condition ? st.active : ''}`}
 		>
 			{children}
 		</Link>
 	)
 }
 
-type Props = {}
-const Header = ({}: Props) => {
+const Header = () => {
 	const theme = useAppSelector((state) => state.theme)
 	const { changeTheme } = useActions()
 
 	const changeThemeEvent = () => changeTheme()
 
 	return (
-		<header className="Header">
-			<div className="container">
-				<div className="logo-box">
+		<header className={st.Header}>
+			<Container className={st.container}>
+				<div className={st.logoBox}>
 					<Logo />
 				</div>
 
-				<nav className="Header-nav">
-					<NavigateItem path={paths.HOME}>HOME</NavigateItem>
-					<NavigateItem path={paths.TRANSACTIONS}>
+				<nav className={st.nav}>
+					<NavigateItem path={routes.Home}>HOME</NavigateItem>
+					<NavigateItem path={routes.Transactions}>
 						TRANSACTIONS
 					</NavigateItem>
 				</nav>
 
-				<div className="settings">
+				<div className={st.settings}>
 					<button
-						className="change-theme-btn"
+						className={st['change-theme-btn']}
 						onClick={changeThemeEvent}
 					>
 						{theme.mode === 'light' ? (
@@ -60,7 +62,7 @@ const Header = ({}: Props) => {
 						)}
 					</button>
 				</div>
-			</div>
+			</Container>
 		</header>
 	)
 }

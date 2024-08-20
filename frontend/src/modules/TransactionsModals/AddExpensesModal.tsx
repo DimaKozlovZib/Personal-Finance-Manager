@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import useModal from '../../hooks/useModal'
-import { Modal, ModalLayout } from '../../pages/ModalLayout'
+import { Modal, ModalLayout } from '../../Layouts/ModalLayout'
 import MoneyInput from '../../UI/MoneyInput/MoneyInput'
 import CustomSelect from '../../UI/CustomSelect/CustomSelect'
 import CustomInput from '../../UI/CustomInput/CustomInput'
@@ -11,8 +11,11 @@ import DateInput from '../../UI/DateTimeInputs/DateInput'
 import { ExpensesCategories } from './Categories'
 import moment from 'moment'
 import TimeInput from '../../UI/DateTimeInputs/TimeInput'
-import './TransactionsModals.scss'
 import { checkDate } from './dataValidation'
+import { classes } from '../../constants'
+
+import st from '../../styles/Modals.module.scss'
+import localeSt from './TransactionsModals.module.scss'
 
 type Props = {
 	ModalKey: ModalKeys
@@ -58,11 +61,17 @@ const AddExpensesModal = ({ ModalKey }: Props) => {
 				IsActive={ModalIndex === ModalType.dataBlock}
 				isDirectionСlockwise={directionСlockwise}
 			>
-				<div className="AddExpensesModal modalStyleClass">
-					<h4 className="modalStyleClass__title">
+				<div className={classes(st.AddIncomeModal, st.modalStyleClass)}>
+					<h4 className={st.modalStyleClassTitle}>
 						Параметры транзакции (расход)
 					</h4>
-					<div className="modalStyleClass-block first-block">
+					<div
+						className={classes(
+							st.modalStyleBlock,
+							st.firstBlock,
+							localeSt.firstBlock
+						)}
+					>
 						<MoneyInput
 							value={MoneyCount}
 							setValue={setMoneyCount}
@@ -75,19 +84,21 @@ const AddExpensesModal = ({ ModalKey }: Props) => {
 							label="Категоря расхода"
 						/>
 					</div>
-					<CustomInput
-						value={Comment}
-						setValue={setComment}
-						placeholder="Коментарий"
-						className="commentInput"
-					/>
+					<div className={st.modalStyleBlock}>
+						<CustomInput
+							value={Comment}
+							setValue={setComment}
+							placeholder="Коментарий"
+							className="commentInput"
+						/>
+					</div>
 				</div>
 
-				<div className="buttonsWrapper">
-					<button className="clearBtn" onClick={resetData}>
+				<div className={st.buttonsWrapper}>
+					<button className={st.clearBtn} onClick={resetData}>
 						Очистить
 					</button>
-					<div className="navigateButtonsBox">
+					<div className={st.navigateButtonsBox}>
 						<CustomButton onClick={closeModal} cancelType>
 							Закрыть
 						</CustomButton>
@@ -99,21 +110,26 @@ const AddExpensesModal = ({ ModalKey }: Props) => {
 				IsActive={ModalIndex === ModalType.timeBlock}
 				isDirectionСlockwise={directionСlockwise}
 			>
-				<div className="AddExpensesModal modalStyleClass">
-					<h4 className="modalStyleClass__title">
+				<div className={classes(st.AddIncomeModal, st.modalStyleClass)}>
+					<h4 className={st.modalStyleClassTitle}>
 						Установить дату и время транзакции
 					</h4>
-					<div className="DateTimeInputsBox modalStyleClass">
+					<div
+						className={classes(
+							localeSt.DateTimeInputsBox,
+							st.modalStyleBlock
+						)}
+					>
 						<DateInput value={Date} setValue={setDate} />
 						<TimeInput value={Time} setValue={setTime} />
 					</div>
 				</div>
 
-				<div className="buttonsWrapper">
-					<button className="clearBtn" onClick={resetData}>
+				<div className={st.buttonsWrapper}>
+					<button className={st.clearBtn} onClick={resetData}>
 						Очистить
 					</button>
-					<div className="navigateButtonsBox">
+					<div className={st.navigateButtonsBox}>
 						<CustomButton onClick={goBack} cancelType>
 							Назад
 						</CustomButton>

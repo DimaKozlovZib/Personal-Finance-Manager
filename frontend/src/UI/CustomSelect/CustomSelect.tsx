@@ -1,6 +1,7 @@
 import { Dispatch, MouseEvent, useEffect, useState } from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import './CustomSelect.scss'
+import st from './CustomSelect.module.scss'
+import { classes } from '../../constants'
 
 type Props = {
 	label: string
@@ -38,25 +39,21 @@ const CustomSelect = ({ label, valuesList, value, setValue }: Props) => {
 
 	return (
 		<div
-			className={`
-				CustomSelect 
-				${MenuStatus && 'active'} 
-				${!value && 'placeholder'}
-			`}
+			className={classes(
+				st.CustomSelect,
+				MenuStatus && st.active,
+				!value && st.placeholder
+			)}
 		>
-			<button className="CustomSelect__valueBox" onClick={toggleMenu}>
-				<span className="CustomSelect__value">{value || label}</span>
-				<div className="select-arrow">
+			<button className={st.valueBox} onClick={toggleMenu}>
+				<span>{value || label}</span>
+				<div className={st.selectArrow}>
 					<KeyboardArrowDownIcon />
 				</div>
 			</button>
-			<div className="CustomSelect__listOptions">
+			<div className={st.listOptions}>
 				{valuesList.map((i: string) => (
-					<button
-						onClick={selectValue(i)}
-						key={i}
-						className="CustomSelect__option"
-					>
+					<button onClick={selectValue(i)} key={i}>
 						{i}
 					</button>
 				))}

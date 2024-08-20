@@ -1,0 +1,49 @@
+@import '../../styles/index.scss';
+
+.HistoryList__item {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 10px 15px;
+
+	&:not(:last-child) {
+		border-bottom: 2px solid var(--alpha4);
+		transition: border-color $transitionTime;
+	}
+}
+
+.categoryBox {
+	transition: $color-theme-transition;
+	color: var(--alpha7);
+	font-size: 17px;
+}
+
+.moneyBox {
+	transition: $color-theme-transition;
+	font-size: 18px;
+	margin-left: auto;
+	color: var(--main-elements-color);
+}
+
+.itemAvatarBox {
+	background-color: var(--blue-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 37px;
+	width: 37px;
+	opacity: 0.75;
+	border-radius: 50%;
+	transition: $bacground-theme-transition;
+	svg {
+		width: 23px;
+		height: 23px;
+		color: #fff;
+	}
+}
+.HistoryList__item.income {
+	.moneyBox {
+		color: var(--blue-color);
+		transition: $color-theme-transition;
+	}
+}

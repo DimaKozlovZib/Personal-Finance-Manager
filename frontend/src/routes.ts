@@ -1,8 +1,6 @@
-enum paths {
-  HOME = '',
-  TRANSACTIONS = 'Transactions'
+enum routes {
+	Home = '/',
+	Transactions = '/Transactions'
 }
 
-const NavigatePath = (path: string): string => `/${path}`
-
-export {paths, NavigatePath}
+export { routes }

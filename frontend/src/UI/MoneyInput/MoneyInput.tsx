@@ -1,5 +1,7 @@
 import { ChangeEvent, Dispatch } from 'react'
-import './MoneyInput.scss'
+import st from './MoneyInput.module.scss'
+import inputSt from '../../styles/inputStyle.module.scss'
+import { classes } from '../../constants'
 
 type Props = {
 	placeholder: string
@@ -16,10 +18,10 @@ const MoneyInput = ({ placeholder, value, setValue }: Props) => {
 
 		setValue(numericValue)
 	}
-
+	//{`${}  customInputStyleClass`}
 	return (
-		<div className="MoneyInput customInputStyleClass">
-			<div className="MoneyInput__prefics">
+		<div className={classes(st.MoneyInput, inputSt.customInputStyleClass)}>
+			<div className={st.prefics}>
 				<span>₽</span>
 			</div>
 			<input

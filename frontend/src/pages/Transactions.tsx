@@ -1,10 +1,8 @@
 import HistoryList from '../components/HistoryList/HistoryList'
 import AddTransactions from '../modules/AddTransactions/AddTransactions'
-import Layout from './Layout'
+import Layout from '../Layouts/Layout'
 
-type Props = {}
-
-const Transactions = ({}: Props) => {
+const Transactions = () => {
 	return (
 		<Layout>
 			<h1 className="pageTitle">Денежные транзакции</h1>

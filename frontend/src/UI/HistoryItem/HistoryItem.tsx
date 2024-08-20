@@ -1,6 +1,7 @@
 import { ExpensesCategories } from '../../modules/TransactionsModals/Categories'
 import RemoveIcon from '@mui/icons-material/Remove'
-import './HistoryItem.scss'
+import st from './HistoryItem.module.scss'
+import { classes } from '../../constants'
 
 const ExpensesCategoryIcons = (category: string) => {
 	const categoriesList = ExpensesCategories.map((i) => i.name)
@@ -19,14 +20,16 @@ type Props = {
 
 const HistoryItem = ({ isIncome, category, moneyCount }: Props) => {
 	return (
-		<div className={`HistoryList__item ${isIncome ? 'income' : ''}`}>
-			<div className="item-avatar-box">
+		<div
+			className={classes(st.HistoryList__item, isIncome ? st.income : '')}
+		>
+			<div className={st.itemAvatarBox}>
 				{ExpensesCategoryIcons(category)}
 			</div>
-			<div className="category-box">
+			<div className={st.categoryBox}>
 				<h3>{category}</h3>
 			</div>
-			<div className="money-box">
+			<div className={st.moneyBox}>
 				<h3>
 					{isIncome && '+'}
 					{moneyCount} ₽

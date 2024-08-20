@@ -1,6 +1,6 @@
 import { Chart, ChartConfiguration } from 'chart.js/auto'
 import { memo, useEffect } from 'react'
-import './StartSchedule.scss'
+import st from './StartSchedule.module.scss'
 import useAppSelector from '../../hooks/useAppSelector'
 import useWindowDimensions from '../../hooks/useWindowDimensions'
 
@@ -98,7 +98,7 @@ const StartSchedule = memo(() => {
 	}, [themeMode, width])
 
 	return (
-		<div className="StartSchedule">
+		<div className={st.StartSchedule}>
 			<canvas id="myChart"></canvas>
 		</div>
 	)

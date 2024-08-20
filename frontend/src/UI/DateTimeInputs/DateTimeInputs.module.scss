@@ -1,7 +1,6 @@
 @import '../../styles/index.scss';
 
-.DateInput,
-.TimeInput {
+.DateTimeInputClass {
 	[class*='-MuiInputBase-root-MuiFilledInput-root'],
 	.css-1d223f6-MuiInputBase-root-MuiFilledInput-root {
 		background-color: transparent !important;
@@ -68,12 +67,13 @@
 	.css-z3c6am-MuiFormControl-root-MuiTextField-root {
 		width: 100%;
 	}
-}
 
-.DateInput,
-.TimeInput {
 	h3 {
 		font-size: 18px;
 		color: var(--main-elements-color);
+	}
+
+	& > * {
+		width: 100%;
 	}
 }

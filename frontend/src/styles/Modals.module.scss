@@ -1,0 +1,142 @@
+@import './index.scss';
+
+.modalWrapper {
+	opacity: 0;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba($color: #000000, $alpha: 0.3);
+	transition: opacity 400ms ease;
+}
+.modalContent {
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	box-sizing: border-box;
+	padding: 35px 20px;
+	border-radius: 10px;
+	background: var(--main-bg-color);
+	max-width: 85%;
+	max-height: 80vh;
+	height: fit-content;
+	transform: translateY(-50px);
+}
+
+.Wrapper-entering {
+	opacity: 1;
+
+	.modalContent {
+		transform: translateY(0px);
+		transition: transform 400ms ease;
+	}
+}
+.Wrapper-entered {
+	opacity: 1;
+
+	.modalContent {
+		transform: translateY(0px);
+		transition: none;
+	}
+
+	.Content-entering {
+		transition: none;
+		transform: translateX(100%);
+	}
+	.Content-entered {
+		transform: translateX(0);
+		transition: transform 350ms ease-out;
+	}
+	.Content-exiting {
+		transform: translateX(-100%);
+		transition: transform 350ms ease-out, opacity 500ms ease;
+		opacity: 0;
+	}
+	.Content-exited {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+
+	.DirectionСlockwise.Content-entering {
+		transition: none;
+		transform: translateX(-100%);
+	}
+	.DirectionСlockwise.Content-entered {
+		transform: translateX(0);
+		transition: transform 350ms ease-out;
+	}
+	.DirectionСlockwise.Content-exiting {
+		transform: translateX(100%);
+		transition: transform 350ms ease-out, opacity 500ms ease;
+		opacity: 0;
+	}
+	.DirectionСlockwise.Content-exited {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+}
+.Wrapper-exiting {
+	opacity: 0;
+	.modalContent {
+		transform: translateY(0px);
+	}
+}
+.Wrapper-exited {
+	opacity: 0;
+}
+
+.modalStyleClassTitle {
+	font-size: 23px;
+	text-align: center;
+	color: var(--main-elements-color);
+	font-weight: bold;
+}
+.modalStyleBlock {
+	margin-top: 10px;
+}
+.modalStyleBlock.firstBlock {
+	margin-top: 25px;
+}
+
+.buttonsWrapper {
+	margin-top: 25px;
+	width: 100%;
+	display: flex;
+	gap: 15px;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.clearBtn {
+	font-size: 18px;
+	color: var(--alpha5);
+	transition: $color-theme-transition;
+	padding-left: 10px;
+
+	&:hover {
+		color: var(--main-elements-color);
+	}
+}
+
+.navigateButtonsBox {
+	display: flex;
+	gap: 15px;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.modalStyleClass.AddExpensesModal,
+.modalStyleClass.AddIncomeModal {
+	.commentInput {
+		margin-top: 20px;
+	}
+	.DateTimeInputsBox {
+		margin-top: 20px;
+	}
+}

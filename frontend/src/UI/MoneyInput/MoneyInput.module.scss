@@ -1,0 +1,10 @@
+.prefics {
+	color: var(--main-elements-color);
+	font-size: 22px;
+	font-weight: bold;
+}
+.MoneyInput:has(input:focus) {
+	&::after {
+		width: 100%;
+	}
+}

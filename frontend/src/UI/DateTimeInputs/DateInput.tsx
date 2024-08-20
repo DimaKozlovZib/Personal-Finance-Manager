@@ -1,6 +1,6 @@
 import React, { Dispatch } from 'react'
 import { DatePicker, PickerValidDate } from '@mui/x-date-pickers'
-import './DateTimeInputs.scss'
+import st from './DateTimeInputs.module.scss'
 import moment from 'moment'
 
 type Props = {
@@ -21,7 +21,7 @@ const DateInput = ({ label, setValue, value }: Props) => {
 		.startOf('month')
 
 	return (
-		<div className="DateInput">
+		<div className={st.DateTimeInputClass}>
 			<h3>{label}</h3>
 			<DatePicker
 				slotProps={{ textField: { variant: 'filled' } }}
