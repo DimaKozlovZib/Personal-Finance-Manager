@@ -1,12 +1,10 @@
 import { Chart, ChartConfiguration } from 'chart.js/auto'
 import { memo, useEffect } from 'react'
-import st from './StartSchedule.module.scss'
+import st from './LineChart.module.scss'
 import useAppSelector from '../../hooks/useAppSelector'
-import useWindowDimensions from '../../hooks/useWindowDimensions'
 
-const StartSchedule = memo(() => {
+const LineChart = memo(() => {
 	const { mode: themeMode } = useAppSelector((state) => state.theme)
-	const { width } = useWindowDimensions()
 
 	const table = 'myChart'
 	const themes = {
@@ -62,6 +60,7 @@ const StartSchedule = memo(() => {
 			},
 
 			options: {
+				maintainAspectRatio: false,
 				scales: {
 					x: {
 						display: true,
@@ -95,13 +94,13 @@ const StartSchedule = memo(() => {
 		return () => {
 			myChart.destroy()
 		}
-	}, [themeMode, width])
+	}, [themeMode])
 
 	return (
-		<div className={st.StartSchedule}>
+		<div className={st.LineChart}>
 			<canvas id="myChart"></canvas>
 		</div>
 	)
 })
 
-export default StartSchedule
+export default LineChart

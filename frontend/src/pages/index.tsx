@@ -1,6 +1,6 @@
-import HistoryList from '../components/HistoryList/HistoryList'
+import HistoryList from '../modules/HistoryList/HistoryList'
 import InfoCardList from '../components/InfoCardList/InfoCardList'
-import StartSchedule from '../components/StartSchedule/StartSchedule'
+import LineChart from '../components/LineChart/LineChart'
 import Layout from '../Layouts/Layout'
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
 			</div>
 			<div className="pageContentBlock">
 				<h2 className="pageContentBlock__title">Аналитический отчет</h2>
-				<StartSchedule />
+				<LineChart />
 			</div>
 			<div className="pageContentBlock">
 				<h2 className="pageContentBlock__title">История</h2>

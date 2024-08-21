@@ -1,5 +1,5 @@
 @import '../../styles/index.scss';
-.StartSchedule {
+.LineChart {
 	width: 100%;
 	padding: 20px 15px;
 	border-radius: 10px;
@@ -7,6 +7,8 @@
 	background: var(--main-bg-color);
 	margin-top: 20px;
 	transition: $bacground-theme-transition;
+	z-index: 0;
+	position: relative;
 
 	canvas {
 		width: 100%;

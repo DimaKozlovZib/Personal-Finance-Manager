@@ -1,4 +1,4 @@
-import HistoryList from '../components/HistoryList/HistoryList'
+import HistoryList from '../modules/HistoryList/HistoryList'
 import AddTransactions from '../modules/AddTransactions/AddTransactions'
 import Layout from '../Layouts/Layout'
 

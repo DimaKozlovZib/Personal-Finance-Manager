@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import Header from '../components/Header/Header'
+import Header from '../modules/Header/Header'
 
 type Props = {
 	children: ReactNode

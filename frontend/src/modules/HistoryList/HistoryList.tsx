@@ -1,6 +1,6 @@
 import st from './HistoryList.module.scss'
 import HistoryItem from '../../UI/HistoryItem/HistoryItem'
-import { ExpensesCategories } from '../../modules/TransactionsModals/Categories'
+import { ExpensesCategories } from '../TransactionsModals/Categories'
 import Link from 'next/link'
 
 const HistoryList = () => {
