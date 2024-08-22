@@ -3,26 +3,26 @@ import { memo, useEffect } from 'react'
 import st from './LineChart.module.scss'
 import useAppSelector from '../../hooks/useAppSelector'
 
+const table = 'myChart'
+const themes = {
+	light: {
+		backgroundColor: 'white',
+		textColor: 'black',
+		axisColor: 'gray',
+		scheduleColor: 'rgb(11, 134, 216)',
+		gradientScheduleColor: 'rgba(11, 134, 216, 0.2)'
+	},
+	dark: {
+		backgroundColor: 'black',
+		textColor: 'white',
+		axisColor: 'gray',
+		scheduleColor: 'rgb(57, 100, 228)',
+		gradientScheduleColor: 'rgba(57, 100, 228, 0.2)'
+	}
+}
+
 const LineChart = memo(() => {
 	const { mode: themeMode } = useAppSelector((state) => state.theme)
-
-	const table = 'myChart'
-	const themes = {
-		light: {
-			backgroundColor: 'white',
-			textColor: 'black',
-			axisColor: 'gray',
-			scheduleColor: 'rgb(11, 134, 216)',
-			gradientScheduleColor: 'rgba(11, 134, 216, 0.2)'
-		},
-		dark: {
-			backgroundColor: 'black',
-			textColor: 'white',
-			axisColor: 'gray',
-			scheduleColor: 'rgb(57, 100, 228)',
-			gradientScheduleColor: 'rgba(57, 100, 228, 0.2)'
-		}
-	}
 
 	useEffect(() => {
 		const ctx = (
@@ -90,7 +90,6 @@ const LineChart = memo(() => {
 			}
 		} as ChartConfiguration)
 
-		// when component unmounts
 		return () => {
 			myChart.destroy()
 		}

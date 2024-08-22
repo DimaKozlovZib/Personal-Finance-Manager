@@ -16,10 +16,9 @@ const InfoCard = memo(({ title, info, secondInfo = '' }: infoCardType) => {
 		</div>
 	)
 })
+InfoCard.displayName = 'InfoCard'
 
-type Props = {}
-
-const InfoCardList = memo(({}: Props) => {
+const InfoCardList = memo(() => {
 	return (
 		<div className={st.InfoCardList}>
 			<InfoCard
@@ -45,5 +44,6 @@ const InfoCardList = memo(({}: Props) => {
 		</div>
 	)
 })
+InfoCardList.displayName = 'InfoCardList'
 
 export default InfoCardList
